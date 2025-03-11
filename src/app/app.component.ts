@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { SearchBarComponent } from "./search-bar/search-bar.component";
 import { PageListComponent } from './page-list/page-list.component';
+import { WikipediaService } from './wikipedia.service';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -9,9 +13,19 @@ import { PageListComponent } from './page-list/page-list.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  title = 'wiki_search';
+  pages:string[] = [];
+
+
+  constructor(private wikipedia: WikipediaService){
+
+  }
   
   onTerm(term:string){
-    console.log("I am what you entered", term);
+    this.wikipedia.search(term).subscribe((response:any)=>{
+      this.pages = response.query.search;
+    
+    })
 
   }
 
