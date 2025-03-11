@@ -8,5 +8,5 @@ import { CommonModule } from '@angular/common';
 })
 export class PageListComponent {
   @Input() pages:{title:string; wordcount:number; snippet:string}[] = [];
-
+  //xss = `<IMG SRC=javascript:alert('XSS')> `;
 }
