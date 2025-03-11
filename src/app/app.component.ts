@@ -14,7 +14,7 @@ import { WikipediaService } from './wikipedia.service';
 })
 export class AppComponent {
   title = 'wiki_search';
-  pages:string[] = [];
+  pages:{title:string; wordcount:number; snippet:string}[] = [];
 
 
   constructor(private wikipedia: WikipediaService){
